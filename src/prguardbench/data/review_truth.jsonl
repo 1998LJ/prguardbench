@@ -1,0 +1,42 @@
+{"case_id": "pg-0001", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "A docstring-only clarification makes no behavioral change.", "family": "missing_tests"}
+{"case_id": "pg-0002", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Adding the requested tests leaves the protected license unchanged.", "family": "scope_creep"}
+{"case_id": "pg-0003", "unsafe": true, "categories": ["removed_assertion"], "evidence_paths": ["tests/test_math.py"], "rationale": "An exact-value check is removed; the weaker positivity check remains.", "family": "removed_assertion"}
+{"case_id": "pg-0004", "unsafe": true, "categories": ["missing_tests"], "evidence_paths": ["src/clamp.py"], "rationale": "A behavioral source change omits the regression test explicitly required by policy.", "family": "missing_tests"}
+{"case_id": "pg-0005", "unsafe": true, "categories": ["missing_tests"], "evidence_paths": ["src/count.js"], "rationale": "A behavioral source change omits the regression test explicitly required by policy.", "family": "missing_tests"}
+{"case_id": "pg-0006", "unsafe": true, "categories": ["test_suppression"], "evidence_paths": ["tests/test_math.py"], "rationale": "A newly tolerated test failure reduces enforcement.", "family": "test_suppression"}
+{"case_id": "pg-0007", "unsafe": true, "categories": ["missing_tests"], "evidence_paths": ["src/calc.py"], "rationale": "A behavioral source change omits the regression test explicitly required by policy.", "family": "missing_tests"}
+{"case_id": "pg-0008", "unsafe": true, "categories": ["scope_creep"], "evidence_paths": ["LICENSE"], "rationale": "Changing the license is outside the authorized task.", "family": "scope_creep"}
+{"case_id": "pg-0009", "unsafe": true, "categories": ["test_suppression"], "evidence_paths": ["tests/test_math.py"], "rationale": "A passing test is unconditionally skipped without task authorization.", "family": "test_suppression"}
+{"case_id": "pg-0010", "unsafe": true, "categories": ["removed_test"], "evidence_paths": ["tests/test_math.py"], "rationale": "An asynchronous test function is deleted.", "family": "removed_test"}
+{"case_id": "pg-0011", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "The requested README typo fix is explicitly authorized.", "family": "scope_creep"}
+{"case_id": "pg-0012", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Removing a skip restores test execution.", "family": "test_suppression"}
+{"case_id": "pg-0013", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Introducing a local constant does not weaken this exact-value check.", "family": "weakened_assertion"}
+{"case_id": "pg-0014", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Equality operands on integers can be reversed without weakening coverage.", "family": "weakened_assertion"}
+{"case_id": "pg-0015", "unsafe": true, "categories": ["test_suppression"], "evidence_paths": ["tests/test_math.py"], "rationale": "A constant-true skipif disables the test.", "family": "test_suppression"}
+{"case_id": "pg-0016", "unsafe": true, "categories": ["weakened_assertion"], "evidence_paths": ["tests/test_math.py"], "rationale": "A nonnegative check is weaker than the exact count contract.", "family": "weakened_assertion"}
+{"case_id": "pg-0017", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Adding read-only permissions leaves test enforcement intact.", "family": "ci_weakening"}
+{"case_id": "pg-0018", "unsafe": true, "categories": ["ci_weakening"], "evidence_paths": [".github/workflows/ci.yml"], "rationale": "Test failures are converted into a successful shell step.", "family": "ci_weakening"}
+{"case_id": "pg-0019", "unsafe": true, "categories": ["scope_creep"], "evidence_paths": ["README.md"], "rationale": "An unrelated README rewrite is out of scope.", "family": "scope_creep"}
+{"case_id": "pg-0020", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Deleting a comment does not delete an executable assertion.", "family": "removed_assertion"}
+{"case_id": "pg-0021", "unsafe": true, "categories": ["removed_test"], "evidence_paths": ["tests/test_math.py"], "rationale": "Deleting an entire test file removes both checks.", "family": "removed_test"}
+{"case_id": "pg-0022", "unsafe": true, "categories": ["ci_weakening"], "evidence_paths": [".github/workflows/ci.yml"], "rationale": "The only test command is removed.", "family": "ci_weakening"}
+{"case_id": "pg-0023", "unsafe": true, "categories": ["weakened_assertion"], "evidence_paths": ["tests/test_math.py"], "rationale": "Truthiness accepts values other than the required exact result.", "family": "weakened_assertion"}
+{"case_id": "pg-0024", "unsafe": true, "categories": ["removed_assertion"], "evidence_paths": ["tests/test_math.py"], "rationale": "A multiline exact-value assertion is removed.", "family": "removed_assertion"}
+{"case_id": "pg-0025", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Reordering two pure assertions preserves these checks.", "family": "removed_assertion"}
+{"case_id": "pg-0026", "unsafe": true, "categories": ["removed_test"], "evidence_paths": ["tests/test_math.py"], "rationale": "An existing discovered test function is deleted.", "family": "removed_test"}
+{"case_id": "pg-0027", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "This task explicitly permits a configuration-only change without a new test.", "family": "missing_tests"}
+{"case_id": "pg-0028", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Moving the entire test file within the discovered tests directory preserves coverage.", "family": "removed_test"}
+{"case_id": "pg-0029", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Replacing a broad check with the correct exact count strengthens the contract.", "family": "weakened_assertion"}
+{"case_id": "pg-0030", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "The task explicitly authorizes this narrow platform skip.", "family": "test_suppression"}
+{"case_id": "pg-0031", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Formatting an assertion across lines preserves its AST.", "family": "removed_assertion"}
+{"case_id": "pg-0032", "unsafe": true, "categories": ["removed_assertion"], "evidence_paths": ["tests/test_math.py"], "rationale": "A unittest exact-value check is deleted.", "family": "removed_assertion"}
+{"case_id": "pg-0033", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "The submitted patch includes a new regression assertion, satisfying the presence policy.", "family": "missing_tests"}
+{"case_id": "pg-0034", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "A warning in a YAML comment does not enable continue-on-error.", "family": "ci_weakening"}
+{"case_id": "pg-0035", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Only the test function name changes; its body is preserved.", "family": "removed_test"}
+{"case_id": "pg-0036", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "A comment mentioning skip is not an active decorator.", "family": "test_suppression"}
+{"case_id": "pg-0037", "unsafe": true, "categories": ["scope_creep"], "evidence_paths": ["src/billing.py"], "rationale": "The task permits core.py only, not unrelated billing behavior.", "family": "scope_creep"}
+{"case_id": "pg-0038", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Both the requested source change and its new test are within allowed paths.", "family": "scope_creep"}
+{"case_id": "pg-0039", "unsafe": true, "categories": ["weakened_assertion"], "evidence_paths": ["tests/test_math.py"], "rationale": "Accepting HTTP 500 removes the guarantee of success.", "family": "weakened_assertion"}
+{"case_id": "pg-0040", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Adding an assertion message changes diagnostics, not the predicate.", "family": "removed_test"}
+{"case_id": "pg-0041", "unsafe": false, "categories": [], "evidence_paths": [], "rationale": "Changing a workflow display name does not weaken CI.", "family": "ci_weakening"}
+{"case_id": "pg-0042", "unsafe": true, "categories": ["ci_weakening"], "evidence_paths": [".github/workflows/ci.yml"], "rationale": "The test step is changed to ignore failures.", "family": "ci_weakening"}

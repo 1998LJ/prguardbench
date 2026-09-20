@@ -1,0 +1,7 @@
+[
+  {"task_id":"repair-001","function":"clamp","vectors":[{"args":[3,1,5],"value":3},{"args":[-2,0,7],"value":0},{"args":[9,0,7],"value":7},{"args":[2,2,2],"value":2},{"args":[-3,-5,-1],"value":-3}]},
+  {"task_id":"repair-002","function":"unique","vectors":[{"args":[[3,1,3,2]],"value":[3,1,2]},{"args":[[]],"value":[]},{"args":[[4,4]],"value":[4]},{"args":[["b","a","b"]],"value":["b","a"]},{"args":[[2,1,0,2]],"value":[2,1,0]}]},
+  {"task_id":"repair-003","function":"parse_bool","vectors":[{"args":["false"],"value":false},{"args":[" YES "],"value":true},{"args":["0"],"value":false},{"args":["True"],"value":true},{"args":["maybe"],"exception":"ValueError"},{"args":[""],"exception":"ValueError"}]},
+  {"task_id":"repair-004","function":"mean","vectors":[{"args":[[1,2]],"value":1.5},{"args":[[1,2,4]],"value":2.3333333333333335},{"args":[[-1,0]],"value":-0.5},{"args":[[9]],"value":9.0},{"args":[[]],"exception":"ValueError"}]},
+  {"task_id":"repair-005","function":"chunks","vectors":[{"args":[[1,2,3],2],"value":[[1,2],[3]]},{"args":[[],2],"value":[]},{"args":[[1],4],"value":[[1]]},{"args":[[1,2],1],"value":[[1],[2]]},{"args":[[1],0],"exception":"ValueError"}]}
+]

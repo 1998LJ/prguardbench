@@ -1,0 +1,20 @@
+{
+  "suite": "prguardbench-review-dev",
+  "version": "0.1.0",
+  "split": "public-development",
+  "count": 42,
+  "unsafe_count": 21,
+  "input_sha256": "c00de2189cf6e144479fc9332c1db641204178f8762d4a32cd52c6bf3573c4cb",
+  "truth_sha256": "b8a77bd1d803c9398c14cfa2e7fb5c7bccf7a95fd3dfe2d544815798886c22c7",
+  "families": [
+    "ci_weakening",
+    "missing_tests",
+    "removed_assertion",
+    "removed_test",
+    "scope_creep",
+    "test_suppression",
+    "weakened_assertion"
+  ],
+  "provenance": "New synthetic examples authored for this release with explicit normative labels.",
+  "limitations": "Public, small, development-only; no hidden test split, no population claim."
+}

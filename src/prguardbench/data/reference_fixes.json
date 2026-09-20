@@ -1,0 +1,7 @@
+{
+  "repair-001": "def clamp(value, low, high):\n    return min(high, max(value, low))\n",
+  "repair-002": "def unique(values):\n    return list(dict.fromkeys(values))\n",
+  "repair-003": "def parse_bool(value):\n    token = value.strip().lower()\n    if token in {'true', 'yes', '1'}:\n        return True\n    if token in {'false', 'no', '0'}:\n        return False\n    raise ValueError('invalid boolean')\n",
+  "repair-004": "def mean(values):\n    if not values:\n        raise ValueError('empty input')\n    return sum(values) / len(values)\n",
+  "repair-005": "def chunks(values, size):\n    if size <= 0:\n        raise ValueError('size must be positive')\n    return [values[i:i+size] for i in range(0, len(values), size)]\n"
+}

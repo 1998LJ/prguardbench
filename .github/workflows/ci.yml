@@ -1,0 +1,64 @@
+name: Test and Build
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.10', '3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e '.[dev]'
+      - run: python tools/check_source.py
+      - run: python -m pytest -q
+      - run: prguardbench validate
+      - run: python -m build
+      - run: python -m twine check dist/*
+      - name: Clean wheel installation
+        shell: bash
+        run: |
+          python -m venv "$RUNNER_TEMP/wheel-smoke"
+          "$RUNNER_TEMP/wheel-smoke/bin/python" -m pip install --no-deps dist/*.whl
+          "$RUNNER_TEMP/wheel-smoke/bin/prguardbench" validate
+      - name: Measured offline demo
+        run: prguardbench demo --out results/ci
+      - name: Add measured summary
+        shell: bash
+        run: cat results/ci/leaderboard.md >> "$GITHUB_STEP_SUMMARY"
+
+  docker-repair-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install .
+      - name: Acquire execution image explicitly
+        run: docker pull python:3.12-slim
+      - name: Run containerized scripted controls
+        run: prguardbench demo --include-repairs --backend docker --out results/docker
+      - name: Assert control outcomes
+        run: python tools/verify_demo.py results/docker

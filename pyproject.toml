@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prguardbench"
+version = "0.1.0"
+description = "Reproducible PR-integrity evaluation: green CI is not enough."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "PRGuardBench contributors"}]
+keywords = ["benchmark", "code-review", "testing", "coding-agents"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "coverage>=7,<8", "ruff>=0.11,<1", "build>=1,<2", "twine>=6,<7"]
+
+[project.scripts]
+prguardbench = "prguardbench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+prguardbench = ["data/*.json", "data/*.jsonl"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

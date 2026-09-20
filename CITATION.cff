@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite this software when using the development suite. No peer-reviewed publication is claimed."
+title: "PRGuardBench: A Development Benchmark for Pull-Request Integrity"
+type: software
+version: 0.1.0
+date-released: 2026-09-20
+authors:
+  - name: "PRGuardBench contributors"
+license: MIT
+abstract: "A public synthetic development suite for PR review integrity and miniature repair evaluation."
