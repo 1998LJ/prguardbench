@@ -33,7 +33,8 @@ def digest(value: Any) -> str:
 def safe_path(value: Any) -> str:
     if not isinstance(value, str) or not value or len(value) > 240:
         raise ValidationError("File path must be a nonempty relative POSIX path (<=240 chars)")
-    if "\" in value or ":" in value or any(ord(c) < 32 for c in value):
+    # Reject Windows drives/ADS, backslashes, control characters and ambiguous normalization.
+    if "\\" in value or ":" in value or any(ord(c) < 32 for c in value):
         raise ValidationError(f"Unsafe file path: {value!r}")
     p = PurePosixPath(value)
     if p.is_absolute() or any(x in ("", ".", "..") for x in value.split("/")):
