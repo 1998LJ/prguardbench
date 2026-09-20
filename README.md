@@ -117,9 +117,9 @@ prguardbench repair-grade --submission submissions/my-agent.json --out results/m
 
 Docker mode disables networking, drops capabilities, runs non-root, uses read-only
 mounts, bounds processes/memory/CPU, and records the resolved image ID. It does not
-silently fall back to host execution. **Docker execution was not available in the
-build environment; only its command construction and fail-closed behavior were tested.**
-The full Docker smoke job is provided in CI for verification after publication.
+silently fall back to host execution. The original local build environment did not
+provide Docker; the published repository's GitHub Actions Docker smoke has since run
+successfully alongside the Python 3.10-3.13 test/build matrix.
 See [SECURITY.md](SECURITY.md) for residual risks and oracle-tampering limitations.
 
 ## Bring your own evaluator
@@ -199,8 +199,8 @@ tests/                 Unit, contract, negative-control and end-to-end tests
 tools/                 Deterministic dataset builders and evidence verification
 examples/              Executable JSON protocol control
 docs/                  Methodology, data card, adapters, handoff and verification
-results/demo/          Actual measured baseline results + self-contained HTML
-.github/workflows/     Test/build and Docker smoke workflows (not yet run remotely)
+results/demo/          Committed measured baseline leaderboard
+.github/workflows/     Test/build and Docker smoke workflows
 ```
 
 MIT licensed. Contributions should improve reproducibility and useful evaluation, not
