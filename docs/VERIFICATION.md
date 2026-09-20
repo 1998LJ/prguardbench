@@ -1,5 +1,16 @@
 # Delivery verification
 
+## Remote publication verification
+
+After publication to `1998LJ/prguardbench` on 2026-09-20, GitHub Actions run
+`35499521862` verified the Python 3.10, 3.11, 3.12 and 3.13 test/build/install/demo
+matrix and the Docker repair smoke. All five jobs completed successfully.
+
+The section below preserves the original local-delivery verification as historical
+provenance rather than rewriting it after publication.
+
+## Original local verification
+
 Local verification date: 2026-09-20. Runtime: Linux, CPython 3.13.5.
 
 ## Executed successfully
@@ -22,11 +33,12 @@ Local verification date: 2026-09-20. Runtime: Linux, CPython 3.13.5.
 The initial browser `file://` navigation was blocked by the environment. Visual QA used
 Chromium `set_content` with the exact generated HTML, not a different mockup.
 
-## Not executed / not claimed
+## Not executed / not claimed in the original local build
 
-- Docker runtime integration: Docker is not installed here. Construction/safety/fail-closed
-  tests pass; the separate Docker CI job is provided but has not run on GitHub.
-- Remote GitHub Actions: definitions are supplied, but no repository was created or modified.
+- Docker runtime integration was not available in the original local environment. The
+  later remote Docker repair smoke is recorded in the publication verification above.
+- Remote GitHub Actions were not part of the original local build; see the publication
+  verification above for the later repository run.
 - Ruff / twine / isolated `python -m build`: development-tool download failed because the
   environment cannot resolve the package index. No PASS is claimed. Source hygiene and
   setuptools' installed build backend were used for executed offline checks.

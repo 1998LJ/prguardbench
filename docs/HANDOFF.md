@@ -1,11 +1,16 @@
 # Handoff to the maintainer / 派灵
 
+> Historical handoff note: the project has since been published at
+> `1998LJ/prguardbench`. Remote CI status is recorded in `docs/VERIFICATION.md`.
+> The instructions below preserve the original handoff boundary.
+
 ## Completed here
 
 A working source package, authored data, static review controls, command/replay interface,
 five repair tasks, independent I/O/policy grading, actual local demonstrations, automated
 tests and build/install checks. See VERIFICATION.md for the exact executed commands.
-No existing user repository was changed. No release/tag/remote PR was created.
+At the original local handoff, no existing user repository had been changed and no
+release/tag/remote PR had been created. Publication happened later as a separate step.
 
 ## First reproduce, then publish
 
